@@ -19,29 +19,7 @@ import PhoneInput from 'react-phone-number-input'
 
 
 const auth = getAuth(app);
-
-async function setUpRecaptcha(number) {
-  const recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
-    'size': 'normal',
-    'callback': () => {
-      // reCAPTCHA solved, allow signInWithPhoneNumber.
-      // ...
-    },
-    'expired-callback': () => {
-      // Response expired. Ask the user to solve reCAPTCHA again.
-      // ...
-    },
-  });
-
-  try {
-    const response = await signInWithPhoneNumber(auth, number, recaptchaVerifier);
-    console.log(response);
-    return recaptchaVerifier;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-}
+auth.useDeviceLanguage();
 
 // const appVerifier = setUpRecaptcha();
 
@@ -52,9 +30,11 @@ const Register = () => {
   const [number, setNumber] = useState("")
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [otp, setOtp] = useState("");
+ 
   const [flag, setFlag] = useState("")
   const [confirmObj, setConfirmObj] = useState("")
+  const [varification, setVerification] = useState(null)
+  const [disable, setDisable] = useState(true);
   
 
   const handleSubmit = async(event) => {
@@ -62,25 +42,15 @@ const Register = () => {
     setSuccess("");
     setError("");
     const name = event.target.name.value;
-    const phone = event.target.phone.value;
+    // const phone = event.target.phone.value;
     const date = event.target.date.value;
-    const gender = event.gender.value;
+    const gender = event.target.gender.value;
     const password = event.target.password.value;
     const repeatPassword = event.target.repeatPassword.value;
-    const appVerifier = window.recaptchaVerifier;
 
     // setError("")
-    if( number ==="" || number === undefined)
-      return setError("Please enter a valid Phone Number!");
-      try{
-        const response = await setUpRecaptcha(number)
-        console.log(response);
-        setConfirmObj(response);
-        setFlag(true)
-      }catch(error){
-        setError(error.message);
-      }
-    console.log(name, phone,date, gender,password, repeatPassword );
+  
+    const user = {name,date, gender,password, number }
 
 
 // Authentication 
@@ -94,26 +64,12 @@ const Register = () => {
     //   setError("please add at least 6 characters");
     //   return;
     // }
+    // if (password !== repeatPassword) {
+    //   setError("password dot match");
 
-    signInWithPhoneNumber(auth, number, appVerifier)
-  .then((result) => {
-    // Handle successful authentication
-    const loggedUser = result.user;
-    console.log("User successfully authenticated:", loggedUser);
+    //   return
+    // }
 
-    // Reset the form and display a success message
-    event.target.reset();
-    setSuccess("User has been created successfully");
-
-    // Send verification email and update user data
-    sendVerificationEmail(loggedUser);
-    updateUserData(loggedUser, name);
-  })
-  .catch((error) => {
-    // Handle authentication error
-    console.error(error.message);
-    setError(error.message);
-  });
 
 
 
@@ -131,14 +87,29 @@ const Register = () => {
     //     console.error(error.message);
     //     setError(error.message);
     //   });
+
+    //otp confirmation
+     const otp = event.target.otp.value;
+    try {
+      
+     
+      const data = await  varification.confirm(otp)
+      console.log(data);
+      fetch("http://localhost:3000/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Set the content type if you're sending JSON data
+          // Add any other headers as needed
+        },
+        body: JSON.stringify(data), // Convert the data to a JSON string
+      })
+    } catch (error) {
+      setDisable(true)
+      console.warn("Error: " + error.message)
+    }
   };
 
-  const sendVerificationEmail = (user) => {
-    sendEmailVerification(user).then((result) => {
-      console.log(result);
-      alert("Verify your email");
-    });
-  };
+ 
 
   const updateUserData = (user, name) => {
     updateProfile(user, {
@@ -152,19 +123,25 @@ const Register = () => {
       });
   };
 
-  // const handleEmailChange = (event) => {
-    // console.log(event.target.value);
-  //   setEmail(event.target.value);
-  // };
-
-  const handlePasswordBlar = (event) => {
-    // console.log(event.target.value);
-  };
 
 
-  const verifyOtp = (e) =>{
+
+  const verifyOtp = async(e) =>{
     e.preventDefault();
+    // console.log(number);
+    try {
+      const rechaptcha = new RecaptchaVerifier(auth,"rechaptcha",{})
+      const confirmation = await signInWithPhoneNumber(auth,number,rechaptcha)
+      console.log(confirmation);
+      setVerification(confirmation)
+      if (confirmation.verificationId) {
+        setDisable(false)
+      }
+   } catch (error) {
+      console.log(error);
+   }
   }
+
   return (
     <div className="w-25 mx-auto">
       <h4 className="text-center ">Sign Up</h4>
@@ -193,7 +170,7 @@ const Register = () => {
             placeholder="Your Phone"
             required
           />
-          <div id="recaptcha-container"></div>
+          <div id="recaptcha"></div>
         </div>
         <div className=" d-flex mb-3 col-12 gap-2">
           {/* <label className="form-label">Password</label> */}
@@ -216,7 +193,6 @@ const Register = () => {
           <div className="mb-3 col-6 ">
           <select
             name="gender"
-            ref={genderRef}
             className="form-control  "
             id="gender"
             required
@@ -238,6 +214,7 @@ const Register = () => {
             name="otp"
             className="form-control"
             id="otp"
+            
             placeholder="Enter-OTP"
             
           />
@@ -249,17 +226,17 @@ const Register = () => {
             placeholder=" Get OTP"
             required
           /> */}
-          <button onSubmit={verifyOtp}
-          onChange={(e) =>setOtp(e.target.value)}
+          <button onClick={verifyOtp}
            type="submit" className="btn btn-dark w-100 ">
           Get OTP
         </button>
         </div>
+        <div id="rechaptcha"></div>
         <div className="">
           <div className=" d-flex mb-3 col-12 gap-2">
             {/* <label className="form-label">Password</label> */}
             <input
-              onBlur={handlePasswordBlar}
+             
               type="password"
               name="password"
               className="form-control"
@@ -268,7 +245,7 @@ const Register = () => {
               required
             />
             <input
-              onBlur={handlePasswordBlar}
+             
               type="password"
               name="repeatPassword"
               className="form-control"
@@ -279,7 +256,7 @@ const Register = () => {
           </div>
         </div>
         <div className="mb-3 form-check"></div>
-        <button type="submit" className="btn btn-dark w-100 ">
+        <button type="submit" className="btn btn-dark w-100 " disabled={disable}>
           Sign Up
         </button>
         
