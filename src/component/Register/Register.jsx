@@ -1,21 +1,14 @@
 import { useRef, useState } from "react";
 import {
   RecaptchaVerifier,
-  createUserWithEmailAndPassword,
   getAuth,
-  sendEmailVerification,
   signInWithPhoneNumber,
   updateProfile,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
-import { Link } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
-import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
-
-
-
-
+import { Link, useNavigate } from "react-router-dom";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
 
 const auth = getAuth(app);
@@ -23,21 +16,26 @@ auth.useDeviceLanguage();
 
 // const appVerifier = setUpRecaptcha();
 
+
+
+
 const Register = () => {
   // const [email, setEmail] = useState('');
   
+  const navigate = useNavigate();
+
   const genderRef = useRef();
-  const [number, setNumber] = useState("")
+  // const [user, setUser] = useState(null);
+  const [number, setNumber] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
- 
-  const [flag, setFlag] = useState("")
-  const [confirmObj, setConfirmObj] = useState("")
-  const [varification, setVerification] = useState(null)
-  const [disable, setDisable] = useState(true);
-  
 
-  const handleSubmit = async(event) => {
+  // const [flag, setFlag] = useState("");
+  // const [confirmObj, setConfirmObj] = useState("");
+  const [varification, setVerification] = useState(null);
+  const [disable, setDisable] = useState(true);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setSuccess("");
     setError("");
@@ -49,11 +47,10 @@ const Register = () => {
     const repeatPassword = event.target.repeatPassword.value;
 
     // setError("")
-  
-    const user = {name,date, gender,password, number }
 
+    const user = { name, date, gender, password, number };
 
-// Authentication 
+    // Authentication
     // if (!/(?=.[A-Z])/.test(password)) {
     //   setError("please add at least one uppercase");
     //   return;
@@ -69,9 +66,6 @@ const Register = () => {
 
     //   return
     // }
-
-
-
 
     // createUserWithEmailAndPassword(auth, email, password)
     //   .then((result) => {
@@ -89,11 +83,9 @@ const Register = () => {
     //   });
 
     //otp confirmation
-     const otp = event.target.otp.value;
+    const otp = event.target.otp.value;
     try {
-      
-     
-      const data = await  varification.confirm(otp)
+      const data = await varification.confirm(otp);
       console.log(data);
       fetch("http://localhost:3000/user", {
         method: "POST",
@@ -102,14 +94,13 @@ const Register = () => {
           // Add any other headers as needed
         },
         body: JSON.stringify(data), // Convert the data to a JSON string
-      })
+      });
+      navigate("/login");
     } catch (error) {
-      setDisable(true)
-      console.warn("Error: " + error.message)
+      setDisable(true);
+      console.warn("Error: " + error.message);
     }
   };
-
- 
 
   const updateUserData = (user, name) => {
     updateProfile(user, {
@@ -123,24 +114,26 @@ const Register = () => {
       });
   };
 
-
-
-
-  const verifyOtp = async(e) =>{
+  const verifyOtp = async (e) => {
     e.preventDefault();
     // console.log(number);
     try {
-      const rechaptcha = new RecaptchaVerifier(auth,"rechaptcha",{})
-      const confirmation = await signInWithPhoneNumber(auth,number,rechaptcha)
+      const rechaptcha = new RecaptchaVerifier(auth, "rechaptcha", {});
+      const confirmation = await signInWithPhoneNumber(
+        auth,
+        number,
+        rechaptcha
+      );
       console.log(confirmation);
-      setVerification(confirmation)
+      setVerification(confirmation);
       if (confirmation.verificationId) {
-        setDisable(false)
+        setDisable(false);
       }
-   } catch (error) {
+              
+    } catch (error) {
       console.log(error);
-   }
-  }
+    }
+  };
 
   return (
     <div className="w-25 mx-auto">
@@ -155,8 +148,7 @@ const Register = () => {
             placeholder="Your Name"
             required
           />
-          
-          
+
           <PhoneInput
             // onChange={handleEmailChange}
             defaultCountry="BA"
@@ -191,32 +183,28 @@ const Register = () => {
             required
           /> */}
           <div className="mb-3 col-6 ">
-          <select
-            name="gender"
-            className="form-control  "
-            id="gender"
-            required
-            
-          >
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
+            <select
+              name="gender"
+              className="form-control  "
+              id="gender"
+              required
+            >
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
         </div>
-        </div>
-       
+
         <div className=" d-flex mb-3 col-12 gap-2">
           {/* <label className="form-label">Password</label> */}
           <input
-          
             type="number"
             name="otp"
             className="form-control"
             id="otp"
-            
             placeholder="Enter-OTP"
-            
           />
           {/* <input
             type="number"
@@ -226,17 +214,19 @@ const Register = () => {
             placeholder=" Get OTP"
             required
           /> */}
-          <button onClick={verifyOtp}
-           type="submit" className="btn btn-dark w-100 ">
-          Get OTP
-        </button>
+          <button
+            onClick={verifyOtp}
+            type="submit"
+            className="btn btn-dark w-100 "
+          >
+            Get OTP
+          </button>
         </div>
         <div id="rechaptcha"></div>
         <div className="">
           <div className=" d-flex mb-3 col-12 gap-2">
             {/* <label className="form-label">Password</label> */}
             <input
-             
               type="password"
               name="password"
               className="form-control"
@@ -245,7 +235,6 @@ const Register = () => {
               required
             />
             <input
-             
               type="password"
               name="repeatPassword"
               className="form-control"
@@ -256,9 +245,15 @@ const Register = () => {
           </div>
         </div>
         <div className="mb-3 form-check"></div>
-        <button type="submit" className="btn btn-dark w-100 " disabled={disable}>
+
+        <button
+          type="submit"
+          className="btn btn-dark w-100 "
+          disabled={disable}
+        >
           Sign Up
         </button>
+        
         
       </form>
       <hr />
