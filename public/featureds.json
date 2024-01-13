@@ -1,0 +1,143 @@
+[
+    {
+      "id": 1,
+      "name": "Product 1",
+      "image": "product1.jpg",
+      "category": "featured_products",
+      "price": 19.99
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "image": "product2.jpg",
+      "category": "featured_products",
+      "price": 29.99
+    },
+    {
+      "id": 3,
+      "name": "Shop 1",
+      "image": "shop1.jpg",
+      "category": "featured_shops",
+      "price": null
+    },
+    {
+      "id": 4,
+      "name": "Category 1",
+      "image": "category1.jpg",
+      "category": "featured_categories",
+      "price": null
+    },
+    {
+      "id": 5,
+      "name": "Variant 1",
+      "image": "variant1.jpg",
+      "category": "featured_variants",
+      "price": 14.99
+    },
+    {
+      "id": 6,
+      "name": "Product 3",
+      "image": "product3.jpg",
+      "category": "featured_products",
+      "price": 24.99
+    },
+    {
+      "id": 7,
+      "name": "Shop 2",
+      "image": "shop2.jpg",
+      "category": "featured_shops",
+      "price": null
+    },
+    {
+      "id": 8,
+      "name": "Category 2",
+      "image": "category2.jpg",
+      "category": "featured_categories",
+      "price": null
+    },
+    {
+      "id": 9,
+      "name": "Variant 2",
+      "image": "variant2.jpg",
+      "category": "featured_variants",
+      "price": 17.99
+    },
+    {
+      "id": 10,
+      "name": "Product 4",
+      "image": "product4.jpg",
+      "category": "featured_products",
+      "price": 39.99
+    },
+    {
+      "id": 11,
+      "name": "Shop 3",
+      "image": "shop3.jpg",
+      "category": "featured_shops",
+      "price": null
+    },
+    {
+      "id": 12,
+      "name": "Category 3",
+      "image": "category3.jpg",
+      "category": "featured_categories",
+      "price": null
+    },
+    {
+      "id": 13,
+      "name": "Variant 3",
+      "image": "variant3.jpg",
+      "category": "featured_variants",
+      "price": 22.99
+    },
+    {
+      "id": 14,
+      "name": "Product 5",
+      "image": "product5.jpg",
+      "category": "featured_products",
+      "price": 49.99
+    },
+    {
+      "id": 15,
+      "name": "Shop 4",
+      "image": "shop4.jpg",
+      "category": "featured_shops",
+      "price": null
+    },
+    {
+      "id": 16,
+      "name": "Category 4",
+      "image": "category4.jpg",
+      "category": "featured_categories",
+      "price": null
+    },
+    {
+      "id": 17,
+      "name": "Variant 4",
+      "image": "variant4.jpg",
+      "category": "featured_variants",
+      "price": 26.99
+    },
+    {
+      "id": 18,
+      "name": "Product 6",
+      "image": "product6.jpg",
+      "category": "featured_products",
+      "price": 59.99
+    },
+    {
+      "id": 19,
+      "name": "Shop 5",
+      "image": "shop5.jpg",
+      "category": "featured_shops",
+      "price": null
+    },
+    {
+      "id": 20,
+      "name": "Category 5",
+      "image": "category5.jpg",
+      "category": "featured_categories",
+      "price": null
+    }
+  ]
+  

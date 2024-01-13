@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div style={{minHeight:"100vh"}}><Outlet></Outlet></div>
+            <div style={{minHeight:"88vh"}}><Outlet></Outlet></div>
             
             <Footer></Footer>
 

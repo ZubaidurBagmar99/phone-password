@@ -1,11 +1,27 @@
+import { useLoaderData } from "react-router-dom";
+import Product from "../Product/Product";
 
 
 const Shop = () => {
-    return (
-        <div>
-            <h1>This is Shop</h1>
-        </div>
-    );
+    
+  const products = useLoaderData();
+
+  return (
+    <div className=" ">
+      {
+        products.map(product => 
+          <Product key={product.id} product={product}>
+            {product.name}
+            {product.price}
+          </Product>
+        )
+      }
+      
+    </div>
+  );
 };
 
 export default Shop;
+
+
+

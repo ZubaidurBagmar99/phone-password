@@ -1,0 +1,109 @@
+.red{
+    height: 14px;
+    width: 14px;
+    background-color:red;
+    border-radius: 50%;
+}
+.blue{
+    height: 14px;
+    width: 14px;
+    background-color:blue;
+    border-radius: 50%;
+}
+.green{
+    height: 14px;
+    width: 14px;
+    background-color:green;
+    border-radius: 50%;
+}
+.small{
+    height: 25px;
+    width: 25px;
+    border: 1px solid #666565;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 15px;
+}
+.large{
+    height: 25px;
+    width: 25px;
+    border: 1px solid #666565;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 15px;
+}
+.medium{
+    height: 25px;
+    width: 25px;
+    border: 1px solid #666565;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 15px;
+}
+.cotton{
+    height: 30px;
+    width: 65px;
+    border: 1px solid #777676;
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.polyester{
+    height: 30px;
+    width: 75px;
+    border: 1px solid #777676;
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.wool{
+    height: 30px;
+    width: 65px;
+    border: 1px solid #777676;
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.heart{
+    height: 40px;
+    width: 70px;
+    border: none;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    background-color:rgb(112, 228, 112);
+    font-size: 27px;
+}
+.cart{
+    height: 40px;
+    width: 70px;
+    border:none;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    background-color:rgb(223, 104, 104);
+    font-size: 27px;
+}
+.stock{
+    height: 50px;
+    width: 70px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color:rgb(253, 253, 255);
+    font-size: 15px;
+    gap: 10px;
+    text-align: center;
+    justify-content: center;
+}
+.stock:hover{
+    background-color:rgb(112, 228, 112);
+    color:rgb(253, 253, 255);
+}

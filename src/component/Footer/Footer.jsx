@@ -1,150 +1,80 @@
 // import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className='mb-0 '>
       {/* <Link to="/about-us">About US </Link> */}
       <ul className="nav nav-tabs " >
+        
+          <Link
+          to="/about-us"
+          className="nav-link active"
+          >About US </Link>
+            
         <li className="nav-item" role="presentation">
-          <button
-            className="nav-link active"
-            id="home-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#home"
-            type="button"
-            role="tab"
-            aria-controls="home"
-            aria-selected="true"
-          >
-            About Us
-          </button>
+          <Link
+          to="/contact-us"
+          className="nav-link"
+          >Contact Us </Link>
+            
         </li>
         <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="contact-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact"
-            type="button"
-            role="tab"
-            aria-controls="contact"
-            aria-selected="false"
-          >
-            Contact Us
-          </button>
+          <Link
+          to="/blog"
+          className="nav-link"
+          >GORJON BD Blogs </Link>
+            
         </li>
         <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="gorjon-bd-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact"
-            type="button"
-            role="tab"
-            aria-controls="gorjon-bd"
-            aria-selected="false"
-          >
-            GORJON BD Blogs
-          </button>
+          <Link
+          to="/payment"
+          className="nav-link"
+          >Payment Method
+          </Link>
         </li>
         <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="payment-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact"
-            type="button"
-            role="tab"
-            aria-controls="payment"
-            aria-selected="false"
-          >
-            Payment Method
-          </button>
+          <Link
+          to="/social-media"
+          className="nav-link"
+          >Social Media
+          </Link>
         </li>
         <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="social-media-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact"
-            type="button"
-            role="tab"
-            aria-controls="social-media"
-            aria-selected="false"
-          >
-            Social Media
-          </button>
+          <Link
+          to="/site-map"
+          className="nav-link"
+          >Site Map
+          </Link>
         </li>
         <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="map-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact"
-            type="button"
-            role="tab"
-            aria-controls="map"
-            aria-selected="false"
-          >
-            See Map
-          </button>
+          <Link
+          to="/terms-condition"
+          className="nav-link"
+          >Terms & Conditions
+          </Link>
         </li>
         <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="terms-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact"
-            type="button"
-            role="tab"
-            aria-controls="terms"
-            aria-selected="false"
-          >
-            Terms & Condition 
-          </button>
+          <Link
+          to="/privacy-policy"
+          className="nav-link"
+          >Privacy Policy
+          </Link>
         </li>
         <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="privacy-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact"
-            type="button"
-            role="tab"
-            aria-controls="privacy"
-            aria-selected="false"
-          >
-            Privacy Policy
-          </button>
+        <Link
+          to="/shipping-policy"
+          className="nav-link"
+          >Shipping Policy
+          </Link>
         </li>
         <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="shipping-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact"
-            type="button"
-            role="tab"
-            aria-controls="shipping"
-            aria-selected="false"
-          >
-            Shipping policy
-          </button>
-        </li>
-        <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="refund-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact"
-            type="button"
-            role="tab"
-            aria-controls="refund"
-            aria-selected="false"
-          >
-            Refund Policy
-          </button>
+        <Link
+          to="/refund-policy"
+          className="nav-link"
+          >Refund Policy
+          </Link>
         </li>
       </ul>
       {/* content */}
