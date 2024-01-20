@@ -27,6 +27,7 @@ import TermsCondition from './component/TermsCondition/TermsCondition.jsx';
 import PrivacyPolicy from './component/PrivacyPolicy/Privacypolicy.jsx';
 import RefundPolicy from './component/RefundPolicy/RefundPolicy.jsx';
 import ShippingPolicy from './component/ShippingPolicy/ShippingPolicy.jsx';
+import ProductList from './component/ProductList/ProductList.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element: <Register></Register>
+      },
+      {
+        path:'/product-list',
+        element: <ProductList></ProductList>
       },
       {
         path: '/shop',

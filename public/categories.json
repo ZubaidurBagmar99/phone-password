@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "title": "Product A",
+      "price": 29.99,
+      "brand": "Brand X",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating": "⭐⭐⭐⭐⭐",
+      "category": "Man"
+    },
+    {
+      "id": 2,
+      "title": "Product B",
+      "price": 49.99,
+      "brand": "Brand Y",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating": "⭐⭐⭐⭐",
+      "category": "Women"
+    },
+    {
+      "id": 3,
+      "title": "Product C",
+      "price": 39.99,
+      "brand": "Brand Z",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating":"⭐⭐⭐⭐⭐",
+      "category": "Children"
+    },
+    {
+      "id": 4,
+      "title": "Product D",
+      "price": 59.99,
+      "brand": "Brand X",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating": "⭐⭐⭐⭐",
+      "category": "White"
+    },
+    {
+      "id": 5,
+      "title": "Product E",
+      "price": 69.99,
+      "brand": "Brand Y",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating": "⭐⭐⭐⭐⭐",
+      "category": "Black"
+    },
+    {
+      "id": 6,
+      "title": "Product F",
+      "price": 79.99,
+      "brand": "Brand Z",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating":"⭐⭐⭐⭐",
+      "category": "Man"
+    },
+    {
+      "id": 7,
+      "title": "Product G",
+      "price": 89.99,
+      "brand": "Brand X",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating": "⭐⭐⭐⭐⭐",
+      "category": "Women"
+    },
+    {
+      "id": 8,
+      "title": "Product H",
+      "price": 99.99,
+      "brand": "Brand Y",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating": "⭐⭐⭐⭐⭐",
+      "category": "children"
+    },
+    {
+      "id": 9,
+      "title": "Product I",
+      "price": 109.99,
+      "brand": "Brand Z",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating": "⭐⭐⭐⭐",
+      "category": "White"
+    },
+    {
+      "id": 10,
+      "title": "Product J",
+      "price": 119.99,
+      "brand": "Brand X",
+      "image": "https://i.ibb.co/W6y4Fqj/Rectangle-12.png",
+      "rating": "⭐⭐⭐⭐⭐",
+      "category": "Black"
+    }
+  ]
+  

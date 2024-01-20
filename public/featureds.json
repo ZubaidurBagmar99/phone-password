@@ -2,7 +2,7 @@
     {
       "id": 1,
       "name": "Product 1",
-      "image": "product1.jpg",
+      "image": "https://i.ibb.co/MGbS2nJ/Rectangle-13.png",
       "category": "featured_products",
       "price": 19.99
     },
@@ -123,6 +123,13 @@
       "name": "Product 6",
       "image": "product6.jpg",
       "category": "featured_products",
+      "price": 59.99
+    },
+    {
+      "id": 18,
+      "name": "Product 6",
+      "image": "product6.jpg",
+      "category": "clothing",
       "price": 59.99
     },
     {

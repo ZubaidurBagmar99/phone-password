@@ -1,0 +1,135 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "name": "Product",
+        "subcategories": [
+          {
+            "id": 1,
+            "name": "Grocery & Household",
+            "products": [
+              {
+                "id": 1,
+                "name": "Rice",
+                "price": 2.99,
+                "image": "rice.jpg",
+                "rating": "⭐⭐⭐⭐⭐",
+                "brand": "Brand X"
+              },
+              {
+                "id": 2,
+                "name": "Chicken",
+                "price": 5.99,
+                "image": "chicken.jpg",
+                "rating": "⭐⭐⭐⭐⭐",
+                "brand": "Brand X"
+              },
+              {
+                "id": 3,
+                "name": "Fish",
+                "price": 8.99,
+                "image": "fish.jpg",
+                "rating": "⭐⭐⭐⭐⭐",
+                "brand": "Brand X"
+              },
+              {
+                "id": 4,
+                "name": "Milk",
+                "price": 3.49,
+                "image": "milk.jpg",
+                "rating": "⭐⭐⭐⭐⭐",
+                "brand": "Brand X"
+              },
+              {
+                "id": 5,
+                "name": "Bread",
+                "price": 1.99,
+                "image": "bread.jpg",
+                "rating": "⭐⭐⭐⭐⭐",
+                "brand": "Brand X"
+              }
+            ]
+          }
+          // Add more subcategories
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Service",
+        "subcategories": [
+          {
+            "id": 3,
+            "name": "Marketing Consultancy",
+            "services": [
+              {
+                "id": 6,
+                "name": "Social Media Management",
+                "price": 800
+              },
+              {
+                "id": 7,
+                "name": "Content Creation",
+                "price": 1200
+              },
+              {
+                "id": 8,
+                "name": "SEO Optimization",
+                "price": 1000
+              },
+              {
+                "id": 9,
+                "name": "Email Marketing",
+                "price": 900
+              },
+              {
+                "id": 10,
+                "name": "Digital Advertising",
+                "price": 1500
+              }
+            ]
+          }
+          // Add more subcategories
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Platform",
+        "subcategories": [
+          {
+            "id": 9,
+            "name": "Education",
+            "platforms": [
+              {
+                "id": 11,
+                "name": "Online Courses",
+                "price": 30
+              },
+              {
+                "id": 12,
+                "name": "Ebooks",
+                "price": 15
+              },
+              {
+                "id": 13,
+                "name": "Learning Management System",
+                "price": 50
+              },
+              {
+                "id": 14,
+                "name": "Educational Apps",
+                "price": 25
+              },
+              {
+                "id": 15,
+                "name": "Language Learning Platforms",
+                "price": 40
+              }
+            ]
+          }
+        
+          // Add more subcategories
+        ]
+      }
+    ]
+  }
+  
